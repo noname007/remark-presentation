@@ -1,11 +1,13 @@
-class: center,  middle
+class: center, middle
 
 # Nginx
-
+yangzz
+.footnote[Powered by [remark](https://github.com/gnab/remark)]
 ---
 
-
 ##特点:
+-----
+--
 
 **高并发** 餐馆
 --
