@@ -88,26 +88,30 @@ rtmp {
 ```
 ---
 **点播配置**
-```shell
-            application vod {
-                play /var/flvs;
-            }
+```shell  
+    application vod_http {
+       
+        play_local_path /tmp/videos; 
+        play /tmp/videos http://127.0.0.1:88;
 
-            application vod_http {
-                play_local_path /tmp/videos;
-                play /tmp/videos http://127.0.0.1:88;
-            }    
+    }    
 
 ```
 
-**VLC rtmp://192.168.1.169/vod_http//Ruin.mp4**
+**VLC rtmp://192.168.1.169/vod_http//abcd.flv**
 
 
 ---
 **鉴权**
 
 ```shell 
-on_play http://localhost:91/auth
+    application vod {
+
+        on_play http://localhost:91/auth;
+        play /var/flvs;
+
+    }
+
 ```
 
 
@@ -136,7 +140,7 @@ layout:true
         location /auth{
             access_by_lua '
                 if ngx.var.arg_sign == nil then
-                    ngx.header.Location = "rtmp://192.168.1.169/vod_http/301.mp4"
+                    ngx.header.Location = "301.mp4"
                     ngx.exit(301)
                 end
             ';
