@@ -50,7 +50,7 @@ layout: true
 
 **下载源码**
 
-![](/img/nginx_rtmp.png)
+![](./img/nginx_rtmp.png)
 
 ---
 **安装**
@@ -151,7 +151,7 @@ layout:true
 
 ---
 layout: false
-![](/img/vksyun.png)
+![](./img/vksyun.png)
 
 ---
 class: middle,center
