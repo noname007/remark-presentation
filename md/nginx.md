@@ -139,10 +139,24 @@ layout:true
         listen 91;
         location /auth{
             access_by_lua '
-                if ngx.var.arg_sign == nil then
-                    ngx.header.Location = "301.mp4"
-                    ngx.exit(301)
-                end
+                  local args = {}
+                  local r_m = ngx.var.request_method 
+                  -- ngx.log(ngx.ERR,r_m)
+                  -- ngx.log(ngx.ERR,"===========")
+                  if "GET" == r_m or "HEAD" == r_m then
+                        -- ngx.log(ngx.ERR,"GET============")
+                        args = ngx.req.get_uri_args()
+                  elseif "POST" == r_m then
+                        ngx.req.read_body()
+                        args = ngx.req.get_post_args()
+                        -- ngx.log(ngx.ERR,"POSTD-----------")
+                  end 
+                  if args["sign"] == nil then
+                        ngx.header.Location = "301.mp4"
+                        ngx.exit(304)
+                  else
+                        ngx.exit(200)   
+                  end  
             ';
         }
     }
