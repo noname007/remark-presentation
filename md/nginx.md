@@ -108,7 +108,7 @@ rtmp {
     application vod {
 
         on_play http://localhost:91/auth;
-        play /var/flvs;
+        play /tmp/videos;
 
     }
 
