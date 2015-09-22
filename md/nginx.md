@@ -98,7 +98,7 @@ rtmp {
 
 ```
 
-**VLC rtmp://192.168.1.169/vod_http//abcd.flv**
+**VLC rtmp://192.168.1.161/vod_http//abcd.flv**
 
 
 ---
@@ -116,7 +116,7 @@ rtmp {
 
 
 ```shell
- curl -I 192.168.1.169:91/auth
+ curl -I 192.168.1.161:91/auth
 ```
 
 
